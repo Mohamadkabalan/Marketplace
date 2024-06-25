@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Marketplace / Dashboard</title>
+    <meta content="" name="description"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="../css/vendors/bootstrap.min.css" /> -->
+    <link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="app">
+    <div class="main-container-wrapper">
+
+        <!-- HEADER -->
+        <!-- HEADER TopBar -->
+        <nav class="header-topbar" id="top">
+            <div class="row no-margin">
+                <div class="col-sm-6 ">
+                    <div class="pull-left header-topbar__locale">
+                        <div class="dropdown">
+                            <div class="locale-icon">
+                                <span class="icon american-english-icon"></span>
+                            </div>
+                            <select class="locale-switcher styled-select">
+                                <option selected="selected" value="en">English</option>
+                            </select>
+                            <div class="select-icon-container">
+                                <i class="select-icon language-arrow-icon fas fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 header-topbar__login">
+                    <div class="dropdown float-right">
+                        <div id="account">
+                            <div aria-expanded="false" aria-haspopup="true" class="welcome-content dropdown-toggle"
+                                 data-bs-toggle="dropdown" id="profileMenuButton">
+                                <i class="fas fa-user-circle"></i>
+                                <span class="title">Welcome, Guest!</span>
+                                <span class="select-icon fas fa-angle-down"></span>
+                            </div>
+                            <div aria-labelledby="profileMenuButton"
+                                 class="dropdown-menu dropdown-menu-right text-right">
+                                <a class="dropdown-item" href="user-account_profile.html">My Account</a>
+                                <a class="dropdown-item" href="marketplace_profile.html">Marketplace</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="home-out.html">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- END HEADER TopBar -->
+        <!-- HEADER MiddleBar -->
+        <header class="sticky-header header-middle" id="sticky-header">
+            <div class="row col-12 remove-padding-margin velocity-divide-page" id="header-container">
+                <a class="brand-logo" href="index.html"></a>
+                <div class="row no-margin right searchbar">
+                    <div class="col-7 no-padding input-group">
+                        <form action="/" id="search-form" role="search">
+                            <div class="btn-toolbar full-width" role="toolbar">
+                                <div class="row header-search-container">
+                                    <div class="geolocation-container col-md-4 no-padding">
+                                        <input class="form-control geolocation_search" id="geolocation_search" name="geolocation_search"
+                                               placeholder="City, State or Zip code"
+                                               type="search">
+                                        <a class="link" href="#">
+                                            <i class="fas fa-location-arrow"></i>
+                                            Current location
+                                        </a>
+                                    </div>
+                                    <div class="selectdiv col-md-3  no-padding">
+                                        <select class="form-control fs13 styled-select" name="category">
+                                            <option value="">All Categories</option>
+                                            <option value="44">Booster</option>
+                                        </select>
+                                        <div class="select-icon-container">
+                                            <span class="select-icon fas fa-angle-down"></span>
+                                        </div>
+                                    </div>
+                                    <div class="full-width col-md-5 no-padding">
+                                        <input autocomplete="off" class="form-control ui-autocomplete-input" id="search_products" name="term"
+                                               placeholder="Search for items or shows"
+                                               required="required" type="search">
+                                        <button class="btn" id="header-search-icon" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-5">
+                        <a class="wishlist-btn" href="user-account_wishlist.html">
+                            <i class="far fa-heart"></i>
+                            <span>Wishlist</span>
+                            <!-- <span class="badge">2</span> -->
+                        </a>
+                        <a class="compare-btn" href="user-account_compare.html">
+                            <i class="fas fa-compress-alt"></i>
+                            <span>Compare</span>
+                            <!-- <span class="badge">2</span> -->
+                        </a>
+                        <div class="mini-cart-container pull-right">
+                            <div class="dropdown disable-active">
+                                <button aria-expanded="false" aria-haspopup="true"
+                                        class="btn btn-link disable-box-shadow cursor-not-allowed" data-bs-toggle="dropdown" id="mini-cart"
+                                        type="button">
+                                    <div class="mini-cart-content">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span class="badge">2</span>
+                                        <span class="cart-text">Cart</span>
+                                    </div>
+                                    <div class="down-arrow-container">
+                                        <span class="fas fa-angle-down"></span>
+                                    </div>
+                                </button>
+                                <div aria-labelledby="mini-cart"
+                                     class="dropdown-menu dropdown-menu--cart dropdown-menu-right">
+                                    <div class="cart-dropdown__content">
+                                        <div class="cart-dropdown__list">
+                                            <div class="cart-dropdown__content-head">Products from Seller name one</div>
+                                            <div class="cart-dropdown__list-item">
+                                                <div class="image">
+                                                    <a href="buy_product-detail.html">
+                                                        <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                    </a>
+                                                </div>
+                                                <div>3 x</div>
+                                                <div>
+                                                    <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                    <p>
+                                                        <b>$4567.00</b>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto mr-3">
+                                                    <a href="buy_product-detail.html">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-dropdown__list-item">
+                                                <div class="image">
+                                                    <a href="buy_product-detail.html">
+                                                        <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                    </a>
+                                                </div>
+                                                <div>3 x</div>
+                                                <div>
+                                                    <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                    <p>
+                                                        <b>$4567.00</b>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto mr-3">
+                                                    <a href="buy_product-detail.html">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-dropdown__content-bottom">
+                                                <small>Subtotal from this seller</small>
+                                                <span>$999999.00</span>
+                                                <a class="btn btn-primary" href="checkout_sequence.html">Checkout</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__list">
+                                            <div class="cart-dropdown__content-head">Products from Seller name two</div>
+                                            <div class="cart-dropdown__list-item">
+                                                <div class="image">
+                                                    <a href="buy_product-detail.html">
+                                                        <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                    </a>
+                                                </div>
+                                                <div>3 x</div>
+                                                <div>
+                                                    <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                    <p>
+                                                        <b>$4567.00</b>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto mr-3">
+                                                    <a href="buy_product-detail.html">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-dropdown__list-item">
+                                                <div class="image">
+                                                    <a href="buy_product-detail.html">
+                                                        <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                    </a>
+                                                </div>
+                                                <div>3 x</div>
+                                                <div>
+                                                    <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                    <p>
+                                                        <b>$4567.00</b>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto mr-3">
+                                                    <a href="buy_product-detail.html">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-dropdown__content-bottom">
+                                                <small>Subtotal from this seller</small>
+                                                <span>$999999.00</span>
+                                                <a class="btn btn-primary" href="checkout_sequence.html">Checkout</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__list">
+                                            <div class="cart-dropdown__content-head">Products from Seller name three
+                                            </div>
+                                            <div class="cart-dropdown__list-item">
+                                                <div class="image">
+                                                    <a href="buy_product-detail.html">
+                                                        <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                    </a>
+                                                </div>
+                                                <div>3 x</div>
+                                                <div>
+                                                    <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                    <p>
+                                                        <b>$4567.00</b>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto mr-3">
+                                                    <a href="buy_product-detail.html">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-dropdown__list-item">
+                                                <div class="image">
+                                                    <a href="buy_product-detail.html">
+                                                        <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                    </a>
+                                                </div>
+                                                <div>3 x</div>
+                                                <div>
+                                                    <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                    <p>
+                                                        <b>$4567.00</b>
+                                                    </p>
+                                                </div>
+                                                <div class="ml-auto mr-3">
+                                                    <a href="buy_product-detail.html">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-dropdown__content-bottom">
+                                                <small>Subtotal from this seller</small>
+                                                <span>$999999.00</span>
+                                                <a class="btn btn-primary" href="checkout_sequence.html">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer__actions cart-dropdown__footer">
+                                        <a href="checkout_cart-detail.html">View Shopping Cart</a>
+                                        <span>Total: $999999.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER MiddleBar -->
+        <!-- END HEADER -->
+
+        <!-- MODALS -->
+        <!-- MODAL CART -->
+        <div aria-hidden="true" class="modal modal--cart fade" id="cartModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-head">
+                            <i class="fas fa-cart-plus"></i>
+                            <h3>Added to cart</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a class="btn btn-outline-gray" data-bs-dismiss="modal" href="#">Continue shopping</a>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-primary" href="checkout_sequence.html">Proceed to checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL CART -->
+
+        <!-- MODAL DELETE IMAGE -->
+        <div aria-hidden="true" class="modal normal fade" id="imageDelete" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-head">
+                            <i class="far fa-trash-alt"></i>
+                            <h3>Are you sure you want to delete this image?</h3>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-outline-gray" data-bs-dismiss="modal" href="#">No, cancel</a>
+                            <a class="btn btn-primary" href="#">Yes, delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL DELETE IMAGE -->
+
+        <!-- MODAL EDIT REVIEW -->
+        <div aria-hidden="true" class="modal modal--review fade" id="editReview" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="modal-head">
+                            <i class="far fa-star"></i>
+                            <small>Edit review for</small>
+                            <h3>Seller</h3>
+                            <p>Product bought:
+                                <b>Z1975 WIDE-LEG MID-RISE JEANS</b>
+                            </p>
+                        </div>
+                        <form>
+                            <div class="form-group text-center">
+                                <div class="rate">
+              <span class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" value="Good product">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control">The most highly evolved plants use seeds to reproduce and spread. Seeds have tough outer coatings and carry a large food store to help the new individual to grow, More primitive plants use simpler mechanisms. These usually involve spores which have a seed-like role but are very small and usually consist of just a cell.</textarea>
+                            </div>
+                            <div class="text-right">
+                                <input class="btn btn-primary" type="submit" value="Save review">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL EDIT REVIEW -->
+
+        <!-- MODAL CONTACT SELLER -->
+        <div aria-hidden="true" class="modal fade" id="contactSeller" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="modal-head">
+                            <i class="fal fa-comment-alt-lines"></i>
+                            <h3>Contact Seller</h3>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" type="email">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Subject" type="text">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="text-right">
+                                <input class="btn btn-primary" type="submit" value="Send message">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL CONTACT SELLER -->
+
+        <!-- MODAL ADD NEW CREDIT CARD -->
+        <div aria-hidden="true" aria-labelledby="credit-card" class="modal fade credit-card-modal modal--add-card" id="newCardPopup"
+             role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="modal-head">
+                            <h3>Add a new credit card</h3>
+                        </div>
+                        <form action="/">
+                            <div class="save-card-controls">
+                                <div class="row no-gutters">
+                                    <div class="col-12 save-card-controls-col">
+                                        <input class="form-control" placeholder="Card Number" type="text">
+                                        <i class="far fa-credit-card"></i>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters">
+                                    <div class="col-6 save-card-controls-col">
+                                        <input class="form-control" placeholder="MM/YY" type="text">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="col-6 save-card-controls-col">
+                                        <input class="form-control" placeholder="CVC" type="text">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="save-card-checkbox">
+            <span class="form-check">
+              <input class="ml0" id="save_credit_card" name="save_credit_card" type="checkbox">
+              <label class="custom-checkbox-view form-check-label" for="save_credit_card">Save card</label>
+            </span>
+                            </div>
+                            <div class="col-12 text-right">
+                                <button class="btn btn-primary" id="submit_btn" type="submit">Add a new credit card
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL ADD NEW CREDIT CARD -->
+
+        <!-- MODAL ADD NEW ADDRESS -->
+        <div aria-hidden="true" aria-labelledby="select-ffl" class="modal fade modal--add-address" id="newAddressPopup"
+             role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button aria-label="Close" class="close shipping-modal" data-bs-dismiss="modal" type="button">
+                            <i aria-hidden="true" class="fa-solid fa-times"></i>
+                        </button>
+                        <div class="modal-head">
+                            <h3>Add new address</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-field">
+                                    <label class="mandatory" for="first_name">First name</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control" id="first_name"
+                                           name="first_name" placeholder="First name" type="text">
+                                    <span class="control-error"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-field">
+                                    <label class="mandatory" for="last_name">Last name</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control" id="last_name"
+                                           name="last_name" placeholder="Last name" type="text">
+                                    <span class="control-error"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field">
+                                    <label class="mandatory" for="email">Email</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control" id="email" name="email"
+                                           placeholder="Email" type="text">
+                                    <span class="control-error"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-field">
+                                    <label class="mandatory" for="phone">Phone</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control" id="phone" name="phone"
+                                           placeholder="Phone" type="text">
+                                    <span class="control-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="modal-section-title">Address</h3>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-field form-group">
+                                    <label class="mandatory" for="shipping_address_0">Street</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control"
+                                           id="shipping_address_0" name="shipping[address1][]" placeholder="Street"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-field form-group">
+                                    <label class="mandatory" for="shipping[city]">City</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control" id="shipping[city]"
+                                           name="shipping[city]" placeholder="City" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-field form-group">
+                                    <label class="mandatory" for="shipping[state]">State</label>
+                                    <select aria-invalid="false" aria-required="true" class="form-control"
+                                            id="shipping[state]" name="shipping[state]">
+                                        <option value="">State</option>
+                                        <option value="AL">Alabama</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-field form-group">
+                                    <label class="mandatory" for="shipping[postcode]">Zip/Postcode</label>
+                                    <input aria-invalid="false" aria-required="true" class="form-control"
+                                           id="shipping[postcode]" name="shipping[postcode]" placeholder="Zip/Postcode"
+                                           type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-actions d-flex flex-row-reverse align-center">
+                            <div class="col-sm-3 text-right p-0 mt-1">
+                                <button class="btn btn-primary ml-auto" type="button">Add new address</button>
+                            </div>
+                            <div class="text-right col-sm-9">
+                                <p class="text-danger mb-0">You have entered an identical address to one already on your
+                                    profile, please select the existing address or enter a new one.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL ADD NEW ADDRESS -->
+
+        <!-- MODAL SELECT ADDRESS -->
+        <div aria-hidden="true" class="modal fade modal--select-address" id="selectAddressPopup" role="dialog"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button aria-label="Close" class="close shipping-modal" data-bs-dismiss="modal" type="button">
+                            <i aria-hidden="true" class="fa-solid fa-times"></i>
+                        </button>
+                        <div class="modal-head">
+                            <h3>Select shipping address</h3>
+                        </div>
+                        <div class="row d-flex align-items-stretch">
+                            <div class="col-lg-6 holder_item checkout__form-customer-item">
+                                <div class="card checkout__form-customer-card active">
+                                    <div class="card-body">
+                                        <div class="checkout__form-customer-card-radio">
+                                            <div class="form-group form-check">
+                                                <div class="radio-button">
+                                                    <div class="radio-button__input">
+                                                        <input id="billing-21" name="billing" type="radio" value="12">
+                                                        <label class="form-check-label" for="billing-21"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="checkout__form-customer-card-info">
+                                            <p class="card-title checkout__form-customer-card-name">Rob Brown,</p>
+                                            <ul class="checkout__form-customer-card-address" type="none">
+                                                <li>1234 Campbellsville Pike,</li>
+                                                <li>CLondon, Down Town , 1300</li>
+                                                <li>Contact: 123-456-7890</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <span class="control-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 holder_item checkout__form-customer-item">
+                                <div class="card checkout__form-customer-card active">
+                                    <div class="card-body">
+                                        <div class="checkout__form-customer-card-radio">
+                                            <div class="form-group form-check">
+                                                <div class="radio-button">
+                                                    <div class="radio-button__input">
+                                                        <input id="billing-22" name="billing" type="radio" value="12">
+                                                        <label class="form-check-label" for="billing-22"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="checkout__form-customer-card-info">
+                                            <p class="card-title checkout__form-customer-card-name">Rob Brown,</p>
+                                            <ul class="checkout__form-customer-card-address" type="none">
+                                                <li>1234 Campbellsville Pike,</li>
+                                                <li>CLondon, Down Town , 1300</li>
+                                                <li>Contact: 123-456-7890</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <span class="control-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 holder_item checkout__form-customer-item">
+                                <div class="card checkout__form-customer-card active">
+                                    <div class="card-body">
+                                        <div class="checkout__form-customer-card-radio">
+                                            <div class="form-group form-check">
+                                                <div class="radio-button">
+                                                    <div class="radio-button__input">
+                                                        <input id="billing-23" name="billing" type="radio" value="12">
+                                                        <label class="form-check-label" for="billing-23"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="checkout__form-customer-card-info">
+                                            <p class="card-title checkout__form-customer-card-name">Rob Brown,</p>
+                                            <ul class="checkout__form-customer-card-address" type="none">
+                                                <li>1234 Campbellsville Pike,</li>
+                                                <li>CLondon, Down Town , 1300</li>
+                                                <li>Contact: 123-456-7890</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <span class="control-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 checkout__form-customer-item">
+                                <div aria-label="Close" class="card h-100 cursor-pointer" data-bs-target="#newAddressPopup"
+                                     data-bs-toggle="modal" data-bs-dismiss="modal">
+                                    <div class="card-body add-address-button text-center d-flex align-items-center justify-content-center">
+                                        <div>
+                                            <i class="far fa-plus"></i>
+                                            <p>Add a new address</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-primary" type="button">Select shipping address</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL SELECT ADDRESS -->
+
+        <!-- MODAL FFL SELECT -->
+        <div aria-hidden="true" aria-labelledby="select-ffl" class="modal fade modal--select-ffl" id="fflModal" role="dialog"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-body modal__ffl">
+                        <div class="row">
+                            <div class="col-md-5 pr-md-0">
+                                <div class="modal__ffl-left">
+                                    <button aria-label="Close" class="close shipping-modal" data-bs-dismiss="modal"
+                                            type="button">
+                                        <i aria-hidden="true" class="fa-solid fa-times"></i>
+                                    </button>
+                                    <h3 class="modal-head" id="select-ffl">Choose pickup location</h3>
+                                    <h4 class="modal__ffl-preferred-text">Preferred Delivery Location</h4>
+                                    <div class="modal__ffl-search input-group">
+                                        <input aria-describedby="searchIcon" class="form-control filter-ffl"
+                                               placeholder="Filter location by name" type="text">
+                                        <div class="input-group-append">
+                  <span class="input-group-text" id="searchIcon">
+                    <i aria-hidden="true" class="fa fa-search"></i>
+                  </span>
+                                        </div>
+                                    </div>
+                                    <div class="modal__ffl-list">
+                                        <div class="modal__ffl-list-item recommended">
+                                            <div class="modal__ffl-list-item-overlay justify-content-center align-items-center">
+                                                <button class="btn btn-sm btn-primary" data-bs-dismiss="modal">Select
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <div class="modal__ffl-list-item-content">
+                                                    <p class="modal__ffl-list-item-name">London , Down town, Lake vialla
+                                                        , 1300.</p>
+                                                    <p class="modal__ffl-list-item-distance">23.2 MILES |
+                                                        <a href="buy_product-detail.html">You are buying from this seller</a>
+                                                    </p>
+                                                    <p class="modal__ffl-list-item-address">1600 N MILWAUKEE AVE STES
+                                                        305, 306, 307, 308. LAKE VILLA, IL 60046</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal__ffl-list-item">
+                                            <div class="modal__ffl-list-item-overlay justify-content-center align-items-center">
+                                                <button class="btn btn-sm btn-primary" data-bs-dismiss="modal">Select
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <div class="modal__ffl-list-item-content">
+                                                    <p class="modal__ffl-list-item-name">London , Down town, Lake vialla
+                                                        , 1300.</p>
+                                                    <p class="modal__ffl-list-item-distance">2.5 MILES</p>
+                                                    <p class="modal__ffl-list-item-address">1600 N MILWAUKEE AVE STES
+                                                        305, 306, 307, 308. LAKE VILLA, IL 60046</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal__ffl-list-item">
+                                            <div class="modal__ffl-list-item-overlay justify-content-center align-items-center">
+                                                <button class="btn btn-sm btn-primary" data-bs-dismiss="modal">Select
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <div class="modal__ffl-list-item-content">
+                                                    <p class="modal__ffl-list-item-name">London , Down town, Lake vialla
+                                                        , 1300.</p>
+                                                    <p class="modal__ffl-list-item-distance">12.0 MILES</p>
+                                                    <p class="modal__ffl-list-item-address">1600 N MILWAUKEE AVE STES
+                                                        305, 306, 307, 308. LAKE VILLA, IL 60046</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal__ffl-list-item">
+                                            <div class="modal__ffl-list-item-overlay justify-content-center align-items-center">
+                                                <button class="btn btn-sm btn-primary" data-bs-dismiss="modal">Select
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <div class="modal__ffl-list-item-content">
+                                                    <p class="modal__ffl-list-item-name">London , Down town, Lake vialla
+                                                        , 1300.</p>
+                                                    <p class="modal__ffl-list-item-distance">17.6 MILES</p>
+                                                    <p class="modal__ffl-list-item-address">1600 N MILWAUKEE AVE STES
+                                                        305, 306, 307, 308. LAKE VILLA, IL 60046</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 d-none d-md-block" id="map">
+                                <div class="dummy-content">
+                                    <h1>Map</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL FFL SELECT -->
+        <!-- END MODALS -->
+
+        <div class="main-content-wrapper">
+            <!-- HEADER CategoryNav -->
+            <div class="row vc-header header-shadow active" id="category-menu-header">
+                <div class="vc-small-screen container">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="nav-container">
+                                <div class="wrapper">
+                                    <div class="greeting drawer-section">
+                                        <i class="fas fa-user-circle profile"></i>
+                                        <span>
+                <a href="buy_product-detail.html">Welcome, Guest !</a>
+                <i class="fa-solid fa-times close js-close-nav"></i>
+              </span>
+                                    </div>
+                                    <ul class="list-unstyled category-wrapper">
+                                        <li>
+                                            <a href="buy_product-detail.html">
+                                                <span>Casual</span>
+                                            </a>
+                                            <i class="fa-solid fa-angle-right arrow-right"></i>
+                                        </li>
+                                        <li>
+                                            <a href="buy_product-detail.html">
+                                                <span>Man</span>
+                                            </a>
+                                            <i class="fa-solid fa-angle-right arrow-right"></i>
+                                        </li>
+                                        <li>
+                                            <a href="buy_product-detail.html">
+                                                <span>Woman</span>
+                                            </a>
+                                            <i class="fa-solid fa-angle-right arrow-right"></i>
+                                        </li>
+                                        <li>
+                                            <a href="buy_product-detail.html">
+                                                <span>Kids</span>
+                                            </a>
+                                            <i class="fa-solid fa-angle-right arrow-right"></i>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled meta-wrapper">
+                                        <li>
+                                            <div class="language-logo-wrapper">
+                                                <span class="icon american-english-icon"></span>
+                                            </div>
+                                            <span>English</span>
+                                            <i class="fa-solid fa-angle-right arrow-right"></i>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-outline-primary" href="sign-up.html">
+                                                <span>Sign up</span>
+                                            </a>
+                                            <a class="btn btn-primary" href="sign-in.html">
+                                                <span>Sign In</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="close-wrapper"></div>
+                            </div>
+
+                            <a class="hamburger-wrapper js-toggle-nav" href="#">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a class="left brand-logo" href="#"></a>
+                        </div>
+                        <div class="right-vc-header col-6 dropdown">
+                            <a class="js-toggle-search" href="#">
+                                <i class="fa-solid fa-search"></i>
+                            </a>
+                            <a class="wishlist-btn" href="#">
+                                <i class="far fa-heart"></i>
+                            </a>
+                            <a class="compare-btn" href="user-account_compare.html">
+                                <i class="fas fa-compress-alt"></i>
+                            </a>
+                            <a aria-expanded="false" aria-haspopup="true" data-bs-toggle="dropdown" href="#"
+                               id="mini-cart-mobile">
+                                <div class="badge-wrapper">
+                                    <span class="badge">0</span>
+                                </div>
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                            <div aria-labelledby="mini-cart-mobile"
+                                 class="dropdown-menu dropdown-menu--cart dropdown-menu-right">
+                                <div class="cart-dropdown__content">
+                                    <div class="cart-dropdown__list">
+                                        <div class="cart-dropdown__content-head">Products from Seller name one</div>
+                                        <div class="cart-dropdown__list-item">
+                                            <div class="image">
+                                                <a href="buy_product-detail.html">
+                                                    <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                </a>
+                                            </div>
+                                            <div>3 x</div>
+                                            <div>
+                                                <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                <p>
+                                                    <b>$4567.00</b>
+                                                </p>
+                                            </div>
+                                            <div class="ml-auto mr-3">
+                                                <a href="buy_product-detail.html">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__list-item">
+                                            <div class="image">
+                                                <a href="buy_product-detail.html">
+                                                    <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                </a>
+                                            </div>
+                                            <div>3 x</div>
+                                            <div>
+                                                <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                <p>
+                                                    <b>$4567.00</b>
+                                                </p>
+                                            </div>
+                                            <div class="ml-auto mr-3">
+                                                <a href="buy_product-detail.html">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__content-bottom">
+                                            <small>Subtotal from this seller</small>
+                                            <span>$999999.00</span>
+                                            <a class="btn btn-primary" href="checkout_sequence.html">Checkout</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-dropdown__list">
+                                        <div class="cart-dropdown__content-head">Products from Seller name two</div>
+                                        <div class="cart-dropdown__list-item">
+                                            <div class="image">
+                                                <a href="buy_product-detail.html">
+                                                    <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                </a>
+                                            </div>
+                                            <div>3 x</div>
+                                            <div>
+                                                <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                <p>
+                                                    <b>$4567.00</b>
+                                                </p>
+                                            </div>
+                                            <div class="ml-auto mr-3">
+                                                <a href="buy_product-detail.html">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__list-item">
+                                            <div class="image">
+                                                <a href="buy_product-detail.html">
+                                                    <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                </a>
+                                            </div>
+                                            <div>3 x</div>
+                                            <div>
+                                                <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                <p>
+                                                    <b>$4567.00</b>
+                                                </p>
+                                            </div>
+                                            <div class="ml-auto mr-3">
+                                                <a href="buy_product-detail.html">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__content-bottom">
+                                            <small>Subtotal from this seller</small>
+                                            <span>$999999.00</span>
+                                            <a class="btn btn-primary" href="checkout_sequence.html">Checkout</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-dropdown__list">
+                                        <div class="cart-dropdown__content-head">Products from Seller name three</div>
+                                        <div class="cart-dropdown__list-item">
+                                            <div class="image">
+                                                <a href="buy_product-detail.html">
+                                                    <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                </a>
+                                            </div>
+                                            <div>3 x</div>
+                                            <div>
+                                                <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                <p>
+                                                    <b>$4567.00</b>
+                                                </p>
+                                            </div>
+                                            <div class="ml-auto mr-3">
+                                                <a href="buy_product-detail.html">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__list-item">
+                                            <div class="image">
+                                                <a href="buy_product-detail.html">
+                                                    <img alt="Product image" src="../images/product-thumb-14.jpeg">
+                                                </a>
+                                            </div>
+                                            <div>3 x</div>
+                                            <div>
+                                                <p>Z1975 WIDE-LEG MID-RISE JEANS</p>
+                                                <p>
+                                                    <b>$4567.00</b>
+                                                </p>
+                                            </div>
+                                            <div class="ml-auto mr-3">
+                                                <a href="buy_product-detail.html">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-dropdown__content-bottom">
+                                            <small>Subtotal from this seller</small>
+                                            <span>$999999.00</span>
+                                            <a class="btn btn-primary" href="checkout_sequence.html">Checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer__actions cart-dropdown__footer">
+                                    <a href="checkout_cart-detail.html">View Shopping Cart</a>
+                                    <span>Total: $999999.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-margin right searchbar">
+                            <div class="col-7 no-padding input-group">
+                                <form action="/" id="search-form" role="search">
+                                    <div class="btn-toolbar full-width" role="toolbar">
+                                        <div class="row header-search-container">
+                                            <div class="geolocation-container col-md-4 no-padding">
+                                                <input class="form-control geolocation_search" id="geolocation_search" name="geolocation_search"
+                                                       placeholder="City, State or Zip code"
+                                                       type="search">
+                                            </div>
+                                            <div class="selectdiv col-md-3  no-padding">
+                                                <select class="form-control fs13 styled-select" name="category">
+                                                    <option value="">All Categories</option>
+                                                    <option value="44">Booster</option>
+                                                </select>
+                                                <div class="select-icon-container">
+                                                    <span class="select-icon fas fa-angle-down"></span>
+                                                </div>
+                                            </div>
+                                            <div class="full-width col-md-5 no-padding">
+                                                <input autocomplete="off" class="form-control ui-autocomplete-input" id="search_products"
+                                                       name="term" placeholder="Search for items or shows"
+                                                       required="required" type="search">
+                                                <button class="btn" id="header-search-icon" type="submit">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-5">
+                                <a class="wishlist-btn" href="user-account_wishlist.html">
+                                    <i class="far fa-heart"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                                <a class="compare-btn" href="user-account_compare.html">
+                                    <i class="fas fa-compress-alt"></i>
+                                    <span>Compare</span>
+                                </a>
+                                <div class="mini-cart-container pull-right">
+                                    <div class="dropdown disable-active">
+                                        <button class="btn btn-link disable-box-shadow cursor-not-allowed" id="mini-cart"
+                                                type="button">
+                                            <div class="mini-cart-content">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                <span class="cart-text">Cart</span>
+                                            </div>
+                                            <div class="down-arrow-container">
+                                                <span class="fas fa-angle-down"></span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="main-category left" href="buy_category.html">
+                    <i class="fas fa-list-ul"></i>
+                    <span class="pl5">Shop by Category</span>
+                </a>
+                <div class="content-list right">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="buy.html">Buy</a>
+                        </li>
+                        <li>
+                            <a href="sell_home.html">Sell</a>
+                        </li>
+                        <li>
+                            <a href="shows_browse.html">Marketplace</a>
+                        </li>
+                        <li>
+                            <a href="buy_product-detail.html">About</a>
+                        </li>
+                        <li>
+                            <a href="buy_product-detail.html">Articles</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="link" href="sell_become.html">Start selling on Marketplace</a>
+            </div>
+            <!-- END HEADER CategoryNav -->
+
+            <div class="account-content">
+                <!-- SIDEBAR SECTION -->
+                <div class="sidebar js-user-nav">
+                    <a class="sidebar__toggle js-toggle-user-nav" href="#">
+                        <i class="fa-solid fa-user-cog"></i>
+                    </a>
+                    <div class="close-wrapper"></div>
+                    <div class="customer-sidebar">
+                        <div class="account-details">
+                            <div class="customer-name">G</div>
+                            <div class="customer-name-text">Gregory Brown</div>
+                            <div class="customer-email">demo@example.com</div>
+                        </div>
+                        <span class="paragraph bold">My account</span>
+                        <ul class="navigation">
+                            <li>
+                                <a href="user-account_profile.html">
+                                    <i class="far fa-user"></i>
+                                    <span>Profile</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-account_orders.html">
+                                    <i class="fa-solid fa-receipt"></i>
+                                    <span>Orders</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-account_downloadable-products.html">
+                                    <i class="far fa-arrow-to-bottom"></i>
+                                    <span>Downloadable products</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-account_wishlist.html">
+                                    <i class="far fa-heart"></i>
+                                    <span>Wishlist</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-account_compare.html">
+                                    <i class="fas fa-compress-alt"></i>
+                                    <span>Compare</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-account_reviews.html">
+                                    <i class="fas fa-star"></i>
+                                    <span>My reviews</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-account_addresses.html">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Address</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <span class="paragraph bold">Marketplace</span>
+                        <ul class="navigation">
+                            <li>
+                                <a href="marketplace_profile.html">
+                                    <i class="far fa-user"></i>
+                                    <span>Profile</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="marketplace_dashboard.html">
+                                    <i class="fa-solid fa-tachometer-alt-fast"></i>
+                                    <span>Dashboard</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="marketplace_products.html">
+                                    <i class="fa-solid fa-tags"></i>
+                                    <span>Products</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="marketplace_orders.html">
+                                    <i class="fa-solid fa-receipt"></i>
+                                    <span>Orders</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="marketplace_transactions.html">
+                                    <i class="fa-solid fa-exchange"></i>
+                                    <span>Transactions</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="marketplace_reviews.html">
+                                    <i class="fas fa-star"></i>
+                                    <span>Reviews</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END SIDEBAR SECTION -->
+                <div class="account-layout">
+                    <div class="account-head">
+                        <h1 class="h3">Dashboard</h1>
+                        <div class="account-action">
+                            <div class="form-group form-date">
+                                <input class="form-control" placeholder="05-18-2025" type="text">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="form-group form-date">
+                                <input class="form-control" placeholder="05-18-2025" type="text">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="dashboard-box dashboard-box--number">
+                                <div class="title">Average Order Sale</div>
+                                <div class="data">
+                                    <span class="sum">$99999.99</span>
+                                    <span class="stat text-success"><i class="fa-solid fa-arrow-up"></i> 0.0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="dashboard-box dashboard-box--number">
+                                <div class="title">Average Order Sale</div>
+                                <div class="data">
+                                    <span class="sum">$99999.99</span>
+                                    <span class="stat text-success"><i class="fa-solid fa-arrow-up"></i> 0.0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="dashboard-box dashboard-box--number">
+                                <div class="title">Average Order Sale</div>
+                                <div class="data">
+                                    <span class="sum">$99999.99</span>
+                                    <span class="stat text-success"><i class="fa-solid fa-arrow-up"></i> 0.0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="dashboard-box dashboard-box--empty">
+                                <div class="title">Average Order Sale</div>
+                                <div class="text-center">
+                                    <i class="fa-solid fa-exclamation-triangle"></i>
+                                    <span class="h4">We could not find any records.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="dashboard-box dashboard-box--empty">
+                                <div class="title">Average Order Sale</div>
+                                <div class="text-center">
+                                    <i class="fa-solid fa-exclamation-triangle"></i>
+                                    <span class="h4">We could not find any records.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="dashboard-box dashboard-box--stock">
+                                <div class="title">Stock threshold</div>
+                                <div class="inner">
+                                    <ul>
+                                        <li>
+                                            <img alt="List item image" src="../images/product-thumb-14.jpeg">
+                                            <div class="wrap">
+                                                <p>Z1975 WIDE-LEG MID-RISE
+                                                    <br>
+                                                    JEANS
+                                                </p>
+                                                <b>24 left</b>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img alt="List item image" src="../images/product-thumb-14.jpeg">
+                                            <div class="wrap">
+                                                <p>Z1975 WIDE-LEG MID-RISE
+                                                    <br>
+                                                    Jeans
+                                                </p>
+                                                <b>24 left</b>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img alt="List item image" src="../images/product-thumb-14.jpeg">
+                                            <div class="wrap">
+                                                <p>Z1975 WIDE-LEG MID-RISE
+                                                    <br>
+                                                    Jeans
+                                                </p>
+                                                <b>24 left</b>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img alt="List item image" src="../images/product-thumb-14.jpeg">
+                                            <div class="wrap">
+                                                <p>Z1975 WIDE-LEG MID-RISE
+                                                    <br>
+                                                    Jeans
+                                                </p>
+                                                <b>24 left</b>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img alt="List item image" src="../images/product-thumb-14.jpeg">
+                                            <div class="wrap">
+                                                <p>Z1975 WIDE-LEG MID-RISE
+                                                    <br>
+                                                    Jeans
+                                                </p>
+                                                <b>24 left</b>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img alt="List item image" src="../images/product-thumb-14.jpeg">
+                                            <div class="wrap">
+                                                <p>Z1975 WIDE-LEG MID-RISE
+                                                    <br>
+                                                    Jeans
+                                                </p>
+                                                <b>24 left</b>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <h3>Customer Resources</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="user-account_orders.html">Check On My Order</a>
+                                </li>
+                                <li>
+                                    <a href="buy_category.html">Advanced Search</a>
+                                </li>
+                                <li>
+                                    <a href="checkout_cart-detail.html">My Cart</a>
+                                </li>
+                                <li>
+                                    <a href="checkout_sequence.html">Checkout</a>
+                                </li>
+                                <li>
+                                    <a href="user-account_wishlist.html">Wishlist</a>
+                                </li>
+                                <li>
+                                    <a href="user-account_reviews.html">Reviews</a>
+                                </li>
+                                <li>
+                                    <a href="user-account_profile.html">My Account</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <h3>Seller Resources</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="sign-up.html">Join the Marketplace Network</a>
+                                </li>
+                                <li>
+                                    <a href="marketplace_dashboard.html">My Seller Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="marketplace_reviews.html">Reviews</a>
+                                </li>
+                                <li>
+                                    <a href="marketplace_transactions.html">Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="marketplace_profile.html">Marketplace Profile</a>
+                                </li>
+                                <li>
+                                    <a href="marketplace_products.html">Marketplace Products</a>
+                                </li>
+                                <li>
+                                    <a href="marketplace_product-edit.html">Create a Product</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <h3>Who we are</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="buy_product-detail.html">The Marketplace Story</a>
+                                </li>
+                                <li>
+                                    <a href="buy_product-detail.html">The Marketplace Promise</a>
+                                </li>
+                                <li>
+                                    <a href="buy_product-detail.html">Marketplace Careers</a>
+                                </li>
+                                <li>
+                                    <a href="buy_product-detail.html">Our Values</a>
+                                </li>
+                                <li>
+                                    <a href="buy_product-detail.html">Ambassador Program</a>
+                                </li>
+                                <li>
+                                    <a href="buy_product-detail.html">Customer Reviews</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-3 text-center text-md-right">
+                            <div class="footer__links float-md-right">
+                                <a href="buy_product-detail.html">
+                                    <i class="far fa-question-circle"></i>
+                                    <h4>FAQs</h4>
+                                </a>
+                                <a href="404.html">
+                                    <i class="far fa-envelope"></i>
+                                    <h4>Email</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-4 order-2 order-md-1">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="buy_product-detail.html">Privacy policy</a>
+                                </li>
+                                <li>
+                                    <a href="buy_product-detail.html">Terms and conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-lg-4 text-center order-1 order-md-2">
+                            <a class="brand-logo brand-logo--white" href="#"></a>
+                        </div>
+                        <div class="col-md-5 col-lg-4 text-center text-md-right order-3">
+                            <p>©2025 Marketplace. All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END FOOTER -->      </div>
+</div>
+
+<!-- JS FILES -->
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- END jquery -->
+
+<!-- flexslider -->
+<script crossorigin="anonymous"
+        integrity="sha512-BmoWLYENsSaAfQfHszJM7cLiy9Ml4I0n1YtBQKfx8PaYpZ3SoTXfj3YiDNn0GAdveOCNbK8WqQQYaSb0CMjTHQ=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider-min.js"></script>
+<!-- END flexslider -->
+
+<!-- Bootstrap js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- End Bootstrap js -->
+
+<!-- custom js scripts -->
+<script src="../js/main.js"></script>
+<!-- custom js scripts -->
+
+<!-- END JS FILES -->  </body>
+</html>
