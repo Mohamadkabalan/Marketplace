@@ -3,146 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive marketplace HTML template with modern UI components">
     <title>Home page</title>
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
           referrerpolicy="no-referrer" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet">
-    <style>
-        /*
-        code by Iatek LLC 2018 - CC 2.0 License - Attribution required
-        code customized by Azmind.com
-    */
-        @media (min-width: 768px) and (max-width: 991px) {
-            .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -33.3333%;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-        }
-
-        @media (min-width: 576px) and (max-width: 768px) {
-            .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -50%;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-        }
-
-        @media (min-width: 576px) {
-            .carousel-item {
-                margin-right: 0;
-            }
-
-            .carousel-inner .active + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .carousel-item-next {
-                position: relative;
-                transform: translate3d(0, 0, 0);
-            }
-
-            .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-            .carousel-item-next.carousel-item-left + .carousel-item,
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            .carousel-inner .carousel-item-prev.carousel-item-right {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-
-            .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-            .carousel-item-prev.carousel-item-right + .carousel-item,
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .carousel-inner .active + .carousel-item + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .carousel-item-next {
-                position: relative;
-                transform: translate3d(0, 0, 0);
-            }
-
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-            }
-        }
-
-        @media (min-width: 991px) {
-            .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -25%;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -1122,7 +989,7 @@
                         </div>
                         <div class="row no-margin right searchbar">
                             <div class="col-7 no-padding input-group">
-                                <form action="/" id="search-form-1" role="search">
+                                <form action="/" id="search-form-1" role="search" aria-label="">
                                     <div class="btn-toolbar full-width" role="toolbar">
                                         <div class="row header-search-container">
                                             <div class="geolocation-container col-md-4 no-padding">
@@ -1163,8 +1030,7 @@
                                 </a>
                                 <div class="mini-cart-container pull-right">
                                     <div class="dropdown disable-active">
-                                        <button class="btn btn-link disable-box-shadow cursor-not-allowed"
-                                                id="mini-cart" type="button">
+                                        <button class="btn btn-link disable-box-shadow cursor-not-allowed" type="button">
                                             <div class="mini-cart-content">
                                                 <i class="fas fa-shopping-cart"></i>
                                                 <span class="cart-text">Cart</span>
